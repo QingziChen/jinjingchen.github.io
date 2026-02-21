@@ -15,7 +15,8 @@ nav{border-bottom:1px solid var(--rule);padding:1rem 0;background:rgba(248,248,2
 nav .wrapper{display:flex;align-items:center}
 .nav-name{font-family:'DM Mono',monospace;color:var(--blue);text-transform:uppercase;font-weight:700}
 nav ul{margin-left:auto;display:flex;gap:1.2rem;list-style:none}
-nav a{font-family:'DM Mono',monospace;color:var(--muted);text-decoration:none}
+  nav a{font-family:'DM Mono',monospace;color:var(--muted);text-decoration:none}
+  nav a.active{color:var(--blue);font-weight:700}
 .section-header{display:flex;align-items:baseline;gap:1.2rem;margin-bottom:1rem}
 .exp-item{display:grid;grid-template-columns:160px 1fr;gap:1rem;padding:1.4rem 0;border-bottom:1px dashed var(--rule)}
 .edu-item{display:grid;grid-template-columns:160px 1fr;gap:1rem;padding:1.2rem 0;border-bottom:1px dashed var(--rule)}
@@ -26,8 +27,9 @@ nav a{font-family:'DM Mono',monospace;color:var(--muted);text-decoration:none}
     <div class="wrapper">
       <span class="nav-name">Jinjing Chen</span>
       <ul>
-        <li><a href="index.html">About</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="research.html">Research</a></li>
+        <li><a href="experience.html" class="active">Experience</a></li>
         <li><a href="teaching.html">Teaching</a></li>
       </ul>
     </div>
