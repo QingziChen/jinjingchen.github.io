@@ -18,7 +18,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -30,17 +29,6 @@
       min-height: 100vh;
     }
 
-    /* Subtle paper texture */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── Layout ── */
     .wrapper {
       max-width: 860px;
       margin: 0 auto;
@@ -55,16 +43,12 @@
       padding: 1.4rem 0;
       position: sticky;
       top: 0;
-      background: rgba(245,242,235,0.92);
+      background: rgba(248,248,255,0.93);
       backdrop-filter: blur(6px);
       z-index: 100;
     }
 
-    nav .wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    nav .wrapper { display: flex; justify-content: space-between; align-items: center; }
 
     .nav-name {
       font-family: 'DM Mono', monospace;
@@ -74,11 +58,7 @@
       text-transform: uppercase;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
 
     nav a {
       font-family: 'DM Mono', monospace;
@@ -99,11 +79,7 @@
       animation: fadeUp 0.8s ease both;
     }
 
-    .hero-inner {
-      display: flex;
-      align-items: flex-start;
-      gap: 3rem;
-    }
+    .hero-inner { display: flex; align-items: flex-start; gap: 3rem; }
 
     .hero-photo {
       width: 160px;
@@ -135,29 +111,7 @@
       margin-bottom: 1rem;
     }
 
-    h1 em {
-      font-style: italic;
-      color: var(--blue);
-    }
-
-    .cv-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--blue);
-      color: #fff;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 3px;
-      margin-top: 1.2rem;
-      transition: background 0.2s;
-    }
-
-    .cv-btn:hover { background: var(--accent); }
+    h1 em { font-style: italic; color: var(--blue); }
 
     .hero-sub {
       font-size: 1.1rem;
@@ -186,6 +140,25 @@
 
     .hero-meta a:hover { border-color: var(--blue); }
 
+    .cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--blue);
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 3px;
+      margin-top: 1.2rem;
+      transition: background 0.2s;
+    }
+
+    .cv-btn:hover { background: var(--accent); }
+
     /* ── Sections ── */
     section {
       padding: 3.5rem 0;
@@ -202,17 +175,9 @@
       margin-bottom: 2rem;
     }
 
-    h2 {
-      font-size: 1.05rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-    }
+    h2 { font-size: 1.05rem; font-weight: 500; letter-spacing: 0.02em; }
 
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--rule);
-    }
+    .section-line { flex: 1; height: 1px; background: var(--rule); }
 
     .section-num {
       font-family: 'DM Mono', monospace;
@@ -221,9 +186,103 @@
       letter-spacing: 0.1em;
     }
 
-    /* ── Research Cards ── */
+    /* ── Carousel ── */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      border-radius: 4px;
+    }
+
+    .carousel-track { display: flex; transition: transform 0.4s ease; }
+
+    .carousel-slide { min-width: 100%; }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-placeholder {
+      width: 100%;
+      height: 420px;
+      background: var(--highlight);
+      border: 2px dashed var(--rule);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+    }
+
+    .carousel-placeholder small { font-size: 0.65rem; opacity: 0.6; }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.85);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--ink);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background 0.2s;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover { background: #fff; }
+    .carousel-btn.prev { left: 1rem; }
+    .carousel-btn.next { right: 1rem; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 0.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s;
+    }
+
+    .carousel-dot.active { background: #fff; }
+
+    /* ── Research Groups ── */
+    .research-group { margin-bottom: 2rem; }
+
+    .research-group-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── Research Papers ── */
     .paper {
-      padding: 1.6rem 0;
+      padding: 1.4rem 0;
       border-bottom: 1px dashed var(--rule);
     }
 
@@ -236,12 +295,10 @@
       line-height: 1.4;
     }
 
-    .paper-meta {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
+    .paper-byline {
+      font-size: 0.95rem;
       color: var(--muted);
-      letter-spacing: 0.04em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
     }
 
     .paper-note {
@@ -250,21 +307,7 @@
       font-style: italic;
     }
 
-    .tag {
-      display: inline-block;
-      background: var(--highlight);
-      color: var(--blue);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.55rem;
-      border-radius: 2px;
-      margin-right: 0.4rem;
-      margin-bottom: 0.6rem;
-    }
-
-    /* ── Experience Grid ── */
+    /* ── Experience ── */
     .exp-item {
       display: grid;
       grid-template-columns: 160px 1fr;
@@ -292,10 +335,7 @@
       font-style: italic;
     }
 
-    .exp-desc {
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
+    .exp-desc { font-size: 0.95rem; color: var(--muted); }
 
     /* ── Skills ── */
     .skills-grid {
@@ -313,11 +353,7 @@
       margin-bottom: 0.8rem;
     }
 
-    .skill-group p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .skill-group p { font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
 
     /* ── Education ── */
     .edu-item {
@@ -345,11 +381,7 @@
       font-size: 0.95rem;
     }
 
-    .edu-detail {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-top: 0.2rem;
-    }
+    .edu-detail { font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
 
     /* ── Contact ── */
     .contact-grid {
@@ -373,10 +405,7 @@
       margin-bottom: 0.4rem;
     }
 
-    .contact-value {
-      font-size: 0.95rem;
-      color: var(--ink);
-    }
+    .contact-value { font-size: 0.95rem; color: var(--ink); }
 
     .contact-value a {
       color: var(--blue);
@@ -414,12 +443,12 @@
       .exp-date, .edu-date { padding-top: 0; }
       .contact-grid { grid-template-columns: 1fr; }
       nav ul { gap: 1rem; }
+      .carousel-slide img, .carousel-placeholder { height: 240px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <div class="wrapper">
       <span class="nav-name">Jinjing Chen</span>
@@ -451,9 +480,7 @@
             <span>·</span>
             <span>+61 0481 326 599</span>
           </div>
-          <a class="cv-btn" href="https://drive.google.com/YOUR_CV_LINK_HERE" target="_blank">
-            ↓ Download CV
-          </a>
+          <a class="cv-btn" href="https://drive.google.com/YOUR_CV_LINK_HERE" target="_blank">&#8595; Download CV</a>
         </div>
       </div>
     </header>
@@ -466,29 +493,64 @@
         <div class="section-line"></div>
       </div>
 
-      <p style="color:var(--muted); margin-bottom:2rem; font-style:italic;">
-        Fields: Environmental &amp; Energy Economics &nbsp;·&nbsp; Transportation Economics
-      </p>
-
-      <div class="paper">
-        <div class="paper-title">Assessing the Impact of Crop-Residue Burning on Traffic Accidents: Evidence from Punjab, Pakistan</div>
-        <div class="paper-meta">Job Market Paper</div>
-        <span class="tag">Job Market Paper</span>
+      <!-- Image Carousel — replace placeholder divs with <img> tags when you have images -->
+      <div class="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide">
+            <div class="carousel-placeholder">
+              <span>Research Image 1</span>
+              <small>Upload your image and replace this placeholder</small>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-placeholder">
+              <span>Research Image 2</span>
+              <small>Upload your image and replace this placeholder</small>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-placeholder">
+              <span>Research Image 3</span>
+              <small>Upload your image and replace this placeholder</small>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-placeholder">
+              <span>Research Image 4</span>
+              <small>Upload your image and replace this placeholder</small>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8592;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(1)">&#8594;</button>
+        <div class="carousel-dots" id="carouselDots"></div>
       </div>
 
-      <div class="paper">
-        <div class="paper-title">Anticipation Effects in Vehicle Markets: Evidence from Swedish Feebate Systems</div>
-        <div class="paper-meta">with Sebastian Tebbe &amp; Stephanie Weber</div>
-      </div>
+      <!-- Works in Progress -->
+      <div class="research-group">
+        <h3 class="research-group-title">Works in Progress</h3>
 
-      <div class="paper">
-        <div class="paper-title">The Heterogeneous Environmental Benefits of Electric Vehicles in China</div>
-        <div class="paper-meta">with Leslie Martin</div>
-      </div>
+        <div class="paper">
+          <div class="paper-title">Assessing the Impact of Crop-Residue Burning on Traffic Accidents: Evidence from Punjab, Pakistan</div>
+          <div class="paper-byline"><em>Job Market Paper</em></div>
+        </div>
 
-      <div class="paper">
-        <div class="paper-title">Quantifying the Real Pollution Exposures caused by Crop-Residue Burning in Indian and Pakistan Punjab</div>
-        <div class="paper-meta">with Kathryn Baragwanath &amp; Fatiq Nadeem</div>
+        <div class="paper">
+          <div class="paper-title">Anticipation Effects in Vehicle Markets: Evidence from Swedish Feebate Systems</div>
+          <div class="paper-byline">with Sebastian Tebbe &amp; Stephanie Weber</div>
+          <div class="paper-note">Presented at TWEEDS 2025 · Camp Resources Workshop · Front Range Workshop · Monash Environmental Economics Workshop 2025</div>
+        </div>
+
+        <div class="paper">
+          <div class="paper-title">The Heterogeneous Environmental Benefits of Electric Vehicles in China</div>
+          <div class="paper-byline">with Leslie Martin</div>
+          <div class="paper-note">Presented at Monash University Energy Camp</div>
+        </div>
+
+        <div class="paper">
+          <div class="paper-title">Quantifying the Real Pollution Exposures caused by Crop-Residue Burning in Indian and Pakistan Punjab</div>
+          <div class="paper-byline">with Kathryn Baragwanath &amp; Fatiq Nadeem</div>
+        </div>
       </div>
     </section>
 
@@ -505,7 +567,7 @@
         <div>
           <div class="exp-role">Research Assistant</div>
           <div class="exp-org">LSE International Growth Centre</div>
-          <div class="exp-desc">Developing and validating machine-learning models for crop-residue burning detection using high-temporal multispectral satellite data (Sentinel-2, PlanetScope, VIIRS). Applying remote sensing analytics, spectral index design, and Google Earth Engine, cloud computing with HPC-enabled batch processing.</div>
+          <div class="exp-desc">Developing and validating machine-learning models for crop-residue burning detection using high-temporal multispectral satellite data (Sentinel-2, PlanetScope, VIIRS). Applying remote sensing analytics, spectral index design, and Google Earth Engine with HPC-enabled batch processing.</div>
         </div>
       </div>
 
@@ -513,7 +575,7 @@
         <div class="exp-date">Oct. 2024 – Jul. 2025</div>
         <div>
           <div class="exp-role">Research Assistant</div>
-          <div class="exp-org">Dr. Kathryn Baragwanath — "Playing with Fire: The Environmental Consequences of an Electorally Motivated License to Burn"</div>
+          <div class="exp-org">Dr. Kathryn Baragwanath — "Playing with Fire"</div>
           <div class="exp-desc">Modelled and visualised fire dispersion paths using the HYSPLIT atmospheric transport model in Python and R on high-performance computing infrastructure. Structured spatial data into standardised, research-ready formats.</div>
         </div>
       </div>
@@ -527,40 +589,44 @@
         <div class="section-line"></div>
       </div>
 
-      <div class="exp-item">
-        <div class="exp-date">2023–2025</div>
-        <div>
-          <div class="exp-role">ECON20002 — Intermediate Microeconomics</div>
-          <div class="exp-desc" style="font-style:italic; color:var(--muted);">2023 S1 · 2024 S1 · 2025 S1</div>
-        </div>
-      </div>
+      <p style="color:var(--muted); margin-bottom:1.2rem; font-size:0.95rem;">
+        Teaching Assistant at the University of Melbourne across 4 courses (2022–2025).
+        <br>
+        <button onclick="var d=document.getElementById('teaching-detail'); d.style.display=d.style.display==='none'?'block':'none'; this.textContent=this.textContent==='&#9657; Show courses'?'&#9663; Hide courses':'&#9657; Show courses';"
+          style="background:none; border:none; cursor:pointer; font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:0.08em; color:var(--blue); margin-top:0.6rem; padding:0; text-transform:uppercase;">
+          &#9657; Show courses
+        </button>
+      </p>
 
-      <div class="exp-item">
-        <div class="exp-date">2022–2024</div>
-        <div>
-          <div class="exp-role">ECON10003 — Introductory Macroeconomics</div>
-          <div class="exp-desc" style="font-style:italic; color:var(--muted);">2022 S2 · 2023 S1–S2 · 2024 S2</div>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-date">2024–2025</div>
-        <div>
-          <div class="exp-role">ECON10004 — Introductory Microeconomics</div>
-          <div class="exp-desc" style="font-style:italic; color:var(--muted);">2024 S1–S2 · 2025 S1–S2</div>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-date">2024</div>
-        <div>
-          <div class="exp-role">ECON3001 — Environmental Economics</div>
-          <div class="exp-desc" style="font-style:italic; color:var(--muted);">2024 S2</div>
-        </div>
+      <div id="teaching-detail" style="display:none;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.95rem;">
+          <tbody>
+            <tr style="border-bottom:1px dashed var(--rule);">
+              <td style="padding:0.75rem 1rem 0.75rem 0; font-weight:500; white-space:nowrap;">ECON20002</td>
+              <td style="padding:0.75rem 1rem; color:var(--muted);">Intermediate Microeconomics</td>
+              <td style="padding:0.75rem 0 0.75rem 1rem; font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--muted); text-align:right; white-space:nowrap;">2023–2025</td>
+            </tr>
+            <tr style="border-bottom:1px dashed var(--rule);">
+              <td style="padding:0.75rem 1rem 0.75rem 0; font-weight:500; white-space:nowrap;">ECON10003</td>
+              <td style="padding:0.75rem 1rem; color:var(--muted);">Introductory Macroeconomics</td>
+              <td style="padding:0.75rem 0 0.75rem 1rem; font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--muted); text-align:right; white-space:nowrap;">2022–2024</td>
+            </tr>
+            <tr style="border-bottom:1px dashed var(--rule);">
+              <td style="padding:0.75rem 1rem 0.75rem 0; font-weight:500; white-space:nowrap;">ECON10004</td>
+              <td style="padding:0.75rem 1rem; color:var(--muted);">Introductory Microeconomics</td>
+              <td style="padding:0.75rem 0 0.75rem 1rem; font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--muted); text-align:right; white-space:nowrap;">2024–2025</td>
+            </tr>
+            <tr>
+              <td style="padding:0.75rem 1rem 0.75rem 0; font-weight:500; white-space:nowrap;">ECON3001</td>
+              <td style="padding:0.75rem 1rem; color:var(--muted);">Environmental Economics</td>
+              <td style="padding:0.75rem 0 0.75rem 1rem; font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--muted); text-align:right; white-space:nowrap;">2024</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <!-- Education & Skills -->
+    <!-- Education -->
     <section id="education">
       <div class="section-header">
         <span class="section-num">04</span>
@@ -655,9 +721,34 @@
 
   <footer>
     <div class="wrapper">
-      © 2026 Jinjing Chen &nbsp;·&nbsp; University of Melbourne
+      &copy; 2026 Jinjing Chen &nbsp;&middot;&nbsp; University of Melbourne
     </div>
   </footer>
+
+  <script>
+    let current = 0;
+    const track = document.getElementById('carouselTrack');
+    const slides = track ? track.children.length : 0;
+    const dotsContainer = document.getElementById('carouselDots');
+
+    for (let i = 0; i < slides; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goTo(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function goTo(n) {
+      current = (n + slides) % slides;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function moveCarousel(dir) { goTo(current + dir); }
+    setInterval(() => moveCarousel(1), 5000);
+  </script>
 
 </body>
 </html>
