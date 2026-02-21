@@ -1,4 +1,4 @@
-# Jinjing Chen — Personal Academic Website
+# Jinjing Chen
 
 Ph.D. Candidate in Economics at the University of Melbourne, specialising in Environmental/Energy Economics and Transportation Economics.
 
