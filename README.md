@@ -21,11 +21,6 @@ This is my personal academic website showcasing my research, teaching experience
 - **Quantifying the Real Pollution Exposures caused by Crop-Residue Burning in Indian and Pakistan Punjab** *(with Kathryn Baragwanath and Fatiq Nadeem)*
 - **Assessing the Impact of Crop-Residue Burning on Traffic Accidents: Evidence from Punjab, Pakistan** *(Job Market Paper)*
 
-## Built With
-
-- HTML & CSS
-- GitHub Pages
-
 ## Contact
 
 📧 jinjingc2@unimelb.edu.au  
