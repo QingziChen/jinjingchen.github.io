@@ -2,7 +2,7 @@
 
 Ph.D. Candidate in Economics at the University of Melbourne, specialising in Environmental/Energy Economics and Transportation Economics.
 
-website: https://jinjingchen.github.io
+website: https://Jinjing-Chen.github.io
 
 ## About
 
