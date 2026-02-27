@@ -6,84 +6,8 @@
   <title>Jinjing Chen — About</title>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
-
-  <style>
-    .satellite-track {
-      position: fixed;
-      top: 14px;
-      left: 0;
-      width: 100%;
-      pointer-events: none;
-      z-index: 9999;
-    }
-    .satellite {
-      position: absolute;
-      left: -80px;
-      animation: flyAcross 20s linear infinite;
-    }
-    .satellite::after {
-      content: '';
-      position: absolute;
-      right: 100%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 55px;
-      height: 1px;
-      background: repeating-linear-gradient(
-        to left,
-        rgba(100,160,255,0.6) 0px,
-        rgba(100,160,255,0.6) 3px,
-        transparent 3px,
-        transparent 8px
-      );
-    }
-    @keyframes flyAcross {
-      0%   { left: -80px; }
-      100% { left: calc(100% + 80px); }
-    }
-    .sat-svg {
-      width: 42px;
-      height: 42px;
-      filter: drop-shadow(0 0 4px rgba(100,160,255,0.5));
-    }
-  </style>
 </head>
 <body>
-
-  <!-- Satellite flying across the top -->
-  <div class="satellite-track">
-    <div class="satellite">
-      <svg class="sat-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Left solar panel -->
-        <rect x="1" y="24" width="19" height="11" rx="1.5" fill="#4a8fd4" stroke="#90bef0" stroke-width="1"/>
-        <line x1="1"  y1="27.5" x2="20" y2="27.5" stroke="#b0d0f8" stroke-width="0.6"/>
-        <line x1="1"  y1="30"   x2="20" y2="30"   stroke="#b0d0f8" stroke-width="0.6"/>
-        <line x1="1"  y1="32.5" x2="20" y2="32.5" stroke="#b0d0f8" stroke-width="0.6"/>
-        <line x1="7"  y1="24"   x2="7"  y2="35"   stroke="#b0d0f8" stroke-width="0.6"/>
-        <line x1="13" y1="24"   x2="13" y2="35"   stroke="#b0d0f8" stroke-width="0.6"/>
-        <!-- Left arm -->
-        <rect x="20" y="28.5" width="6" height="2" rx="0.5" fill="#999"/>
-        <!-- Body -->
-        <rect x="26" y="21" width="12" height="19" rx="2" fill="#e0e0e0" stroke="#bbb" stroke-width="1"/>
-        <rect x="28" y="23" width="8"  height="7"  rx="1" fill="#6aaee0"/>
-        <rect x="28" y="32" width="8"  height="3"  rx="0.5" fill="#ccc"/>
-        <!-- Antenna -->
-        <line x1="32" y1="21" x2="32" y2="14" stroke="#bbb" stroke-width="1.2"/>
-        <circle cx="32" cy="13" r="2" fill="#f5a623"/>
-        <!-- Right arm -->
-        <rect x="38" y="28.5" width="6" height="2" rx="0.5" fill="#999"/>
-        <!-- Right solar panel -->
-        <rect x="44" y="24" width="19" height="11" rx="1.5" fill="#4a8fd4" stroke="#90bef0" stroke-width="1"/>
-        <line x1="44" y1="27.5" x2="63" y2="27.5" stroke="#b0d0f8" stroke-width="0.6"/>
-        <line x1="44" y1="30"   x2="63" y2="30"   stroke="#b0d0f8" stroke-width="0.6"/>
-        <line x1="44" y1="32.5" x2="63" y2="32.5" stroke="#b0d0f8" stroke-width="0.6"/>
-        <line x1="50" y1="24"   x2="50" y2="35"   stroke="#b0d0f8" stroke-width="0.6"/>
-        <line x1="56" y1="24"   x2="56" y2="35"   stroke="#b0d0f8" stroke-width="0.6"/>
-      </svg>
-    </div>
-  </div>
-
-  <!-- 100% original content, nothing changed -->
   <div class="wrapper">
     <nav>
       <div class="nav-name">Jinjing Chen</div>
@@ -100,15 +24,15 @@
         <div class="hero-label">About me</div>
         <h1>Jinjing <em>Chen</em></h1>
         <p class="hero-sub">
-          I am a Ph.D. candidate in Economics at the University of Melbourne, supervised by Dr. Leslie Martin, Dr. Kathryn Baragwanath, and Dr. Sebastian Tebbe. My research is in environmental and energy economics, with a focus on environmental policy, transportation sectors, and remote sensing.
+      I am a Ph.D. candidate in Economics at the University of Melbourne, supervised by Dr. Leslie Martin, Dr. Kathryn Baragwanath, and Dr. Sebastian Tebbe. My research is in environmental and energy economics, with a focus on environmental policy, transportation sectors, and remote sensing.
         </p>
         <p class="hero-sub">
-          I study how climate policies in transporation sector affect environmental outcomes and soical welfare. My work combines applied econometrics with atmospheric transport modeling to quantify the environmental and distributional impacts of electric vehicle adoption. I also examine how vehicle policy design shapes market behavior, drawing on evidence from Sweden.
+      I study how climate policies in transporation sector affect environmental outcomes and soical welfare. My work combines applied econometrics with atmospheric transport modeling to quantify the environmental and distributional impacts of electric vehicle adoption. I also examine how vehicle policy design shapes market behavior, drawing on evidence from Sweden.
         <p class="hero-sub">
-          In addition, I combine different sources of high-resolution satellite imagery to quantify real-world environmental impacts, including agricultural burning, air pollution exposure, and traffic safety outcomes.
+      In addition, I combine different sources of high-resolution satellite imagery to quantify real-world environmental impacts, including agricultural burning, air pollution exposure, and traffic safety outcomes.
         </p>
         <p class="hero-sub">
-          I am currently working closely with the Government of Pakistan to help policymakers address environmental issues such as crop-residue burning by improving the existing fire monitoring system.
+      I am currently working closely with the Government of Pakistan to help policymakers address environmental issues such as crop-residue burning by improving the existing fire monitoring system.
         </p>
         <div class="hero-links">
           <span>Email: Jinjingc2@unimelb.edu.au</span><br>
@@ -116,10 +40,9 @@
         </div>
       </div>
     </header>
+
   </div>
+
   <footer>
     &copy; 2026 Jinjing Chen
   </footer>
-
-</body>
-</html>
